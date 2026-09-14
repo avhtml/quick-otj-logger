@@ -21,16 +21,5 @@
       "48": "icon-48.png",
       "128": "icon-128.png"
     }
-  },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "quick-otj-logger@multiverse",
-      "update_url": "https://avhtml.github.io/quick-otj-logger/Firefox/updates.json",
-      "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
-      }
-    }
   }
 }

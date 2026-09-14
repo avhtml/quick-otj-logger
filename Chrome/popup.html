@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Let the window hug the content naturally */
+    html, body { 
+      width: 340px; 
+      margin: 0; 
+      padding: 0;
+      overflow: hidden; 
+      font-family: sans-serif;
+      background: white;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      animation: none !important; 
+      transition: none !important; 
+    }
+
+    .wrapper {
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+      padding: 12px;
+    }
+
+    label { font-size: 13px; font-weight: bold; display: flex; flex-direction: column; }
+
+    input, select, textarea, button { 
+      font-family: inherit; 
+      font-size: 13px;
+      width: 100%; 
+      padding: 6px; 
+      margin-top: 4px; 
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+    }
+
+    /* Button Default State */
+    button.primary-btn { 
+      background: #4A5FF7; 
+      color: white; 
+      border: none; 
+      padding: 0; 
+      cursor: pointer; 
+      margin-top: 5px; 
+      font-weight: bold;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Only apply hover effect if the button is NOT disabled */
+    button.primary-btn:not(:disabled):hover { background: #3b4ce0; }
+
+    /* New: Disabled State (Opacity 0.6) */
+    button.primary-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Button Status States */
+    button.primary-btn.success { background: #10B981; cursor: default; opacity: 1; }
+    button.primary-btn.error { background: #EF4444; cursor: default; opacity: 1; }
+    
+    .row { display: flex; gap: 10px; }
+    .row label { flex: 1; }
+    .date-label { flex: 2 !important; }
+
+    #dateDisplay { cursor: default; color: #333; pointer-events: none; }
+    
+    #calendar-container {
+      display: block; 
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .cal-header { display: flex; justify-content: space-between; align-items: center; font-weight: bold; margin-bottom: 10px; font-size: 12px;}
+    .cal-header button { width: auto; padding: 2px 8px; margin: 0; background: #e0e0e0; color: #333; border: none; }
+    .cal-header button:hover { background: #ccc; }
+    
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; font-size: 12px; }
+    .cal-day-name { font-weight: bold; color: #666; font-size: 10px; padding-bottom: 4px; }
+    
+    .cal-day { 
+      padding: 6px 0; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      background: white; 
+      border: 1px solid #eee; 
+      color: #000;
+    }
+    
+    .cal-day:hover:not(.disabled) { background: #e0e4ff; border-color: #4A5FF7; }
+    .cal-day.selected { background: #4A5FF7; color: white; font-weight: bold; border-color: #4A5FF7; }
+    
+    .cal-day.disabled { 
+      color: #b0b0b0 !important; 
+      background: transparent !important; 
+      border-color: #eee !important; 
+      cursor: not-allowed; 
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <label>Task <textarea id="notes" rows="4" required></textarea></label>
+    
+    <label>Category 
+      <select id="category">
+        <option value="c4299b63-b311-465e-b644-9d5b1bf40b73">Applying apprenticeship learning to work</option>
+        <option value="49848dcc-8829-4b3d-9cd4-6517308e9508">Apprenticeship assignment or project</option>
+        <option value="5bcc1e44-57e5-46c0-b2f6-83e67a2f1510">Apprenticeship-related learning</option>
+        <option value="e7d02ac4-a618-463b-a0b0-dccaccc692c0">Cohort collaboration</option>
+        <option value="9d3e3d98-8880-494d-8cd6-138f5c52672c">Communicating with my coach</option>
+        <option value="cd0a9d5d-5869-4605-954a-7548f90d29f0">Exam revision or assessment work</option>
+        <option value="0ac88b97-f01e-4bca-9369-4cac542b1bfb">Module learning or revision</option>
+        <option value="904499cb-af45-4197-ba4b-5dd8678b1ed7">Multiverse Community</option>
+        <option value="ddaad85c-884b-4fd6-a4bd-554d9a11ea1c">Portfolio work</option>
+        <option value="e3f63ddc-7730-4e63-8046-db5b79d15153">Training at your work</option>
+        <option value="83902a71-0a6b-4904-9398-a74eb5e21401">Workshop, bootcamp, or learning session</option>
+      </select>
+    </label>
+    
+    <div class="row">
+      <label class="date-label">Date <input type="text" id="dateDisplay" readonly></label>
+      <label>Hours <input type="number" id="hours" min="0" value="0"></label>
+      <label>Mins <input type="number" id="minutes" min="0" max="59" value="0"></label>
+    </div>
+    
+    <div id="calendar-container">
+      <div class="cal-header">
+        <button id="prevMonth">&lt;</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth">&gt;</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+    
+    <button id="submitBtn" class="primary-btn" disabled>Save off the job entry</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
