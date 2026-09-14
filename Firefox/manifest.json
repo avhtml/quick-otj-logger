@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Quick OTJ Logger",
+  "name": "Quick OTJ Logger for Multiverse",
   "version": "1.0",
   "description": "Log off-the-job time to Multiverse.",
   "permissions": [
@@ -30,6 +30,7 @@
         "required": [
           "none"
         ]
+      }
     }
   }
 }
