@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Quick OTJ Logger",
+  "version": "1.0",
+  "description": "Log off-the-job time to Multiverse.",
+  "permissions": [
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://otj.multiverse.io/*"
+  ],
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "quick-otj-logger@multiverse",
+      "update_url": "https://avhtml.github.io/quick-otj-logger/updates.json"
+    }
+  }
+}

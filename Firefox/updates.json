@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "quick-otj-logger@ymultiverse": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://your-username.github.io/otj-logger/otj-logger-1.0.xpi"
+        }
+      ]
+    }
+  }
+}
