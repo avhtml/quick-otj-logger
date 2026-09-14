@@ -25,7 +25,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "quick-otj-logger@multiverse",
-      "update_url": "https://avhtml.github.io/quick-otj-logger/updates.json"
+      "update_url": "https://avhtml.github.io/quick-otj-logger/Firefox/updates.json"
     }
   }
 }
